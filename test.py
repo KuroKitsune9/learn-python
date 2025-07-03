@@ -54,7 +54,7 @@ waktu = [waktu_sekuensial, waktu_multithread]
 # Buat grafik perbandingan
 plt.bar(versi, waktu, color=['blue', 'green'])
 plt.ylabel("Waktu (detik)")
-plt.title("Perbandingan Waktu Eksekusi Program")
+plt.title("Perbandingan Waktu Eksekusi Program", pad=20)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 
 # Tampilkan nilai di atas batang
