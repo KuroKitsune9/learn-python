@@ -1,0 +1,5 @@
+train: datasets/tumbuhan/train/images
+val: datasets/tumbuhan/valid/images
+
+nc: 3  # jumlah kelas, misalnya 3
+names: ['tumbuhan']  # sesuaikan dengan nama labelmu
