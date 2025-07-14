@@ -1,4 +1,4 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
+# cd # Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
 """
 Run YOLOv5 detection inference on images, videos, directories, globs, YouTube, webcam, streams, etc.
 
@@ -35,7 +35,7 @@ import platform
 import sys
 from pathlib import Path
 
-import torch
+import torch # type: ignore
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
@@ -43,7 +43,7 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from ultralytics.utils.plotting import Annotator, colors, save_one_box
+from ultralytics.utils.plotting import Annotator, colors, save_one_box # type: ignore
 
 from models.common import DetectMultiBackend
 from utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
@@ -283,13 +283,14 @@ def run(
             im0 = annotator.result()
             
             if view_img:
+                # im0 = cv2.rotate(im0, cv2.ROTATE_90_CLOCKWISE)
                 if platform.system() == "Linux" and p not in windows:
                     windows.append(p)
                     cv2.namedWindow(str(p), cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)  # allow window resize (Linux)
                     cv2.resizeWindow(str(p), im0.shape[1], im0.shape[0])
                     # ubah menjadi agar menunggu user menekan tombol
                 
-                scale_percent = 120
+                scale_percent = 100
                 width = int(im0.shape[1] * scale_percent / 100)
                 height = int(im0.shape[0] * scale_percent / 100)
                 dim = (width, height)
